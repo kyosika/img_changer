@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" id="file" accept="image/png, image/jpeg">
+  <script>
+const file = document.getElementById('file');
+file.addEventListener("change", () => {
+  const fileArray = event.target.files[0];
+const fr = new FileReader();
+
+function change(){
+  document.body.style.background = `url(${fr.result})`;
+  document.body.style.backgroundSize = 'cover';
+}
+fr.onload = change;
+fr.readAsDataURL(fileArray);
+
+})
+
+  </script>
+</body>
+</html>
